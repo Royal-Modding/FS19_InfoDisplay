@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="${descVersion}">
+	<author>${author}</author>
+	<version>${version}</version>
+	<title>
+		<en>${title}</en>
+	</title>
+	<description>
+		<en>
+			<![CDATA[${en_desc}]]>
+		</en>
+	</description>
+	<multiplayer supported="${multiplayerSupported}" />
+	<iconFilename>icon.dds</iconFilename>
+	<extraSourceFiles>
+		<sourceFile filename="lib/utility/Main.lua" />
+		<sourceFile filename="lib/hud/Main.lua" />
+		<sourceFile filename="playerExtension.lua" />
+		<sourceFile filename="infoDisplay.lua" />
+		<sourceFile filename="fieldInfoDisplayExtension.lua" />
+		<sourceFile filename="infoDisplayStyle.lua" />
+		<sourceFile filename="huds/baleHud.lua" />
+		<sourceFile filename="huds/treeHud.lua" />
+		<sourceFile filename="huds/palletHud.lua" />
+	</extraSourceFiles>
+	<l10n>
+		<text name="id_baleHudTitle">
+			<en>Bale Info</en>
+		</text>
+		<text name="id_treeHudTitle">
+			<en>Tree Info</en>
+		</text>
+		<text name="id_palletHudTitle">
+			<en>Pallet Info</en>
+		</text>
+		<text name="id_treeName1">
+			<en>Spruce</en>
+			<de>Fichte</de>
+			<pl>Świerk</pl>
+			<it>Abete</it>
+		</text>
+		<text name="id_treeName2">
+			<en>Pine</en>
+			<de>Kiefer</de>
+			<pl>Sosna</pl>
+			<it>Pino</it>
+		</text>
+		<text name="id_treeName3">
+			<en>Larch</en>
+		</text>
+		<text name="id_treeName4">
+			<en>Birch</en>
+			<de>Birke</de>
+			<pl>Brzoza</pl>
+		</text>
+		<text name="id_treeName5">
+			<en>Beech</en>
+			<de>Buche</de>
+			<pl>Buk</pl>
+		</text>
+		<text name="id_treeName6">
+			<en>Maple</en>
+			<de>Ahorn</de>
+			<pl>Klon</pl>
+		</text>
+		<text name="id_treeName7">
+			<en>Oak</en>
+		</text>
+		<text name="id_treeName8">
+			<en>Ash</en>
+		</text>
+		<text name="id_treeName9">
+			<en>Locust</en>
+		</text>
+		<text name="id_treeName10">
+			<en>Mahogany</en>
+		</text>
+		<text name="id_treeName11">
+			<en>Poplar</en>
+		</text>
+		<text name="id_name">
+			<en>Name</en>
+		</text>
+		<text name="id_height">
+			<en>Height</en>
+		</text>
+	</l10n>
+</modDesc>
