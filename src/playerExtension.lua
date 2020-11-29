@@ -11,24 +11,24 @@ PlayerExtension.huds = {}
 function PlayerExtension:update(superFunc, dt)
     superFunc(self, dt)
     if self.isEntered then
-        self.renderInfo = self.foundInfo and self.infoObject ~= nil
-        self.renderInfoDebug = self.foundInfo and PlayerExtension.infoObjectDebug ~= nil
+        self.renderInfo = self.foundInfoObject and self.raycastHitted
     end
 end
 
 function PlayerExtension:draw(superFunc)
     superFunc(self)
     if self.isEntered then
-        if self.renderInfo and self.infoObject ~= nil then
+        if self.renderInfo then
             if InfoDisplay.debug then
-                Utility.renderTable(0.1, 0.95, 0.009, self.infoObject, 3, true)
+                Utility.renderTable(0.1, 0.95, 0.009, self.infoObject, 3, false)
             end
             if PlayerExtension.huds[self.infoObject.type] ~= nil then
                 PlayerExtension.huds[self.infoObject.type]:render()
             end
-        end
-        if self.renderInfoDebug then
-            Utility.renderTable(0.1, 0.95, 0.009, PlayerExtension.infoObjectDebug, 1, true)
+        else
+            if InfoDisplay.debug and self.raycastHitted then
+                Utility.renderTable(0.1, 0.95, 0.009, self.objectToDebug, 1, false)
+            end
         end
     end
 end
@@ -38,8 +38,10 @@ function PlayerExtension:updateTick(superFunc, dt)
     if self.isEntered then
         local x, y, z = localToWorld(self.cameraNode, 0, 0, 1.0)
         local dx, dy, dz = localDirectionToWorld(self.cameraNode, 0, 0, -1)
-        self.foundInfo = false
-        raycastAll(x, y, z, dx, dy, dz, "infoObjectRaycastCallback", 5, self)
+        self.raycastHitted = false
+        self.foundInfoObject = false
+        self.objectToDebug = nil
+        raycastAll(x, y, z, dx, dy, dz, "infoObjectRaycastCallback", 6, self)
     end
 end
 
@@ -47,25 +49,34 @@ function PlayerExtension:infoObjectRaycastCallback(hitObjectId, _, _, _, _)
     if hitObjectId ~= self.rootNode then
         local id, _ = Utility.getObjectClass(hitObjectId)
         if id == ClassIds.SHAPE then
-            self.foundInfo = true
-            if hitObjectId ~= self.lastFoundInfoObjectId then
-                self.lastFoundInfoObjectId = hitObjectId
-                self.infoObject = PlayerExtension.getInfoObject(hitObjectId)
-                if self.infoObject ~= nil then
-                    if PlayerExtension.huds[self.infoObject.type] ~= nil then
-                        PlayerExtension.huds[self.infoObject.type]:setData(self.infoObject)
-                    end
-                end
+            self.raycastHitted = true
+            if self.objectToDebug == nil and InfoDisplay.debug then
+                self.objectToDebug = PlayerExtension.getInfoObjectDebug(hitObjectId)
             end
-            return false
+
+            if hitObjectId ~= self.lastValidInfoObjectId then
+                local infoObject = PlayerExtension.getInfoObject(hitObjectId)
+                if infoObject ~= nil then
+                    -- valid info object found
+                    if PlayerExtension.huds[infoObject.type] ~= nil then
+                        PlayerExtension.huds[infoObject.type]:setData(infoObject)
+                    end
+                    self.infoObject = infoObject
+                    self.lastValidInfoObjectId = hitObjectId
+                    self.foundInfoObject = true
+                    return false -- stop raycast
+                end
+            else
+                -- valid info object found previously
+                self.foundInfoObject = true
+                return false -- stop raycast
+            end
         end
     end
-    return true
+    return true -- continue raycast
 end
 
 function PlayerExtension.getInfoObject(objectId)
-    PlayerExtension.infoObjectDebug = nil
-
     local object = g_currentMission:getNodeObject(objectId)
     if object ~= nil then
         local baleInfo = PlayerExtension.getBaleInfo(object, objectId)
@@ -80,29 +91,36 @@ function PlayerExtension.getInfoObject(objectId)
         if treeInfo ~= nil then
             return treeInfo
         end
+        local vehicleInfo = PlayerExtension.getVehicleInfo(object, objectId)
+        if vehicleInfo ~= nil then
+            return vehicleInfo
+        end
     else
         local treeInfo = PlayerExtension.getTreeInfo(objectId)
         if treeInfo ~= nil then
             return treeInfo
         end
     end
-
-    if InfoDisplay.debug then
-        if object ~= nil then
-            PlayerExtension.infoObjectDebug = object
-        else
-            PlayerExtension.infoObjectDebug = {objectId = objectId}
-        end
-    end
     return nil
+end
+
+function PlayerExtension.getInfoObjectDebug(objectId)
+    local object = g_currentMission:getNodeObject(objectId)
+    if object ~= nil then
+        return object
+    else
+        return {objectId = objectId}
+    end
 end
 
 function PlayerExtension.getBaleInfo(object, objectId)
     if object["baleValueScale"] ~= nil then
         local info = {}
         info.type = "BALE"
-        info.mass = getMass(objectId)
-        info.mass = info.mass * 1000
+        info.mass = PlayerExtension.getMass(objectId)
+        if info.mass <= 0 then
+            return nil
+        end
         info.fillLevel = object.fillLevel
         info.fillType = object.fillType
         info.baleValueScale = object.baleValueScale
@@ -124,16 +142,36 @@ function PlayerExtension.getBaleInfo(object, objectId)
     return nil
 end
 
-function PlayerExtension.getPalletInfo(object, objectId)
+function PlayerExtension.getPalletInfo(object, _)
     if object["typeName"] ~= nil and object.typeName == "pallet" and object.spec_fillUnit ~= nil then
         local info = {}
         info.type = "PALLET"
-        info.mass = getMass(objectId)
-        info.mass = info.mass * 1000
+        info.mass = PlayerExtension.getMass(object)
         local fillUnit = object.spec_fillUnit.fillUnits[1]
         info.fillType = fillUnit.fillType
         info.fillLevel = fillUnit.fillLevel
         info.ownerFarmId = object:getOwnerFarmId()
+        return info
+    end
+    return nil
+end
+
+function PlayerExtension.getVehicleInfo(object, _)
+    if object["typeName"] ~= nil and object.spec_wearable ~= nil then
+        local info = {}
+        info.type = "VEHICLE"
+        info.mass = PlayerExtension.getMass(object)
+        info.condition = (1 - object:getWearTotalAmount()) * 100
+        info.damage = object:getVehicleDamage() * 100
+        info.ownerFarmId = object:getOwnerFarmId()
+        info.name = object:getName()
+        local storeItem = g_storeManager:getItemByXMLFilename(object.configFileName)
+        if storeItem ~= nil then
+            local brand = g_brandManager:getBrandByIndex(storeItem.brandIndex)
+            if brand ~= nil then
+                info.name = string.format("%s %s", brand.title, info.name)
+            end
+        end
         return info
     end
     return nil
@@ -154,18 +192,20 @@ function PlayerExtension.getTreeInfo(objectId)
         local splitType = g_splitTypeManager:getSplitTypeByIndex(getSplitType(objectId))
         if splitType ~= nil then
             local info = {}
-            info.mass = getMass(objectId)
-            if info.mass == 1 then
+            info.x, info.y, info.z, info.numConvexes, info.numAttachments = getSplitShapeStats(objectId)
+            if info.numAttachments >= 10 then
                 info.type = "TREE"
-                info.mass = nil
-                info.x, _, _, _, _ = getSplitShapeStats(objectId)
             else
                 info.type = "TRUNK"
-                info.mass = info.mass * 1000
-                info.x, info.y, info.z, _, _ = getSplitShapeStats(objectId)
+                info.mass = PlayerExtension.getMass(objectId)
+                if info.mass <= 0 then
+                    return nil
+                end
                 info.volume = getVolume(objectId) * 1000
                 info.pricePerLiter = splitType.pricePerLiter
                 info.woodChipsPerLiter = splitType.pricePerLiter
+                info.woodChips = info.volume * info.woodChipsPerLiter
+                info.price, info.qualityScale, info.defoliageScale, info.lengthScale = Utility.getTrunkValue(objectId, splitType)
             end
             info.splitType = splitType.splitType
             info.name = splitType.name
@@ -178,4 +218,25 @@ function PlayerExtension.getTreeInfo(objectId)
         end
     end
     return nil
+end
+
+function PlayerExtension.getMass(object)
+    if type(object) == "number" then
+        if g_server ~= nil then
+            return getMass(object) * 1000
+        else
+            if g_currentMission.player ~= nil then
+                return (g_currentMission.player.lastFoundObjectMass or 0) * 1000
+            end
+        end
+    else
+        if object.getTotalMass ~= nil then
+            if g_server ~= nil then
+                return object:getTotalMass(true) * 1000
+            else
+                return (object:getTotalMass(true) + object.serverMass) * 1000
+            end
+            return 0
+        end
+    end
 end

@@ -121,10 +121,10 @@ end
 ---@param maxValue number
 ---@return number
 function Utility.clamp(minValue, value, maxValue)
-    if minValue ~= nil and value ~= nil and maxValue ~= nil then
-        return math.max(minValue, math.min(maxValue, value))
-    end
-    return value
+    minValue = minValue or 0
+    maxValue = maxValue or 1
+    value = value or 0
+    return math.max(minValue, math.min(maxValue, value))
 end
 
 --- Get if a the element exists
@@ -299,32 +299,32 @@ end
 ---@param maxDepth integer|nil
 ---@param hideFunc boolean|nil
 function Utility.renderTable(posX, posY, textSize, inputTable, maxDepth, hideFunc)
-    if inputTable == nil then
-        return
-    end
+    inputTable = inputTable or {tableIs = "nil"}
     hideFunc = hideFunc or false
     maxDepth = maxDepth or 2
-    local function renderTableRecursively(posX, posY, textSize, inputTable, depth, maxDepth, i)
+
+    local function renderTableRecursively(x, t, depth, i)
         if depth >= maxDepth then
             return i
         end
-        for k, v in pairs(inputTable) do
+        for k, v in pairs(t) do
             if not hideFunc or type(v) ~= "function" then
                 local offset = i * textSize * 1.05
                 setTextAlignment(RenderText.ALIGN_RIGHT)
-                renderText(posX, posY - offset, textSize, tostring(k) .. " :")
+                renderText(x, posY - offset, textSize, tostring(k) .. " :")
                 setTextAlignment(RenderText.ALIGN_LEFT)
                 if type(v) ~= "table" then
-                    renderText(posX, posY - offset, textSize, " " .. tostring(v))
+                    renderText(x, posY - offset, textSize, " " .. tostring(v))
                 end
                 i = i + 1
                 if type(v) == "table" then
-                    i = renderTableRecursively(posX + textSize * 2, posY, textSize, v, depth + 1, maxDepth, i)
+                    i = renderTableRecursively(x + textSize * 1.8, v, depth + 1, i)
                 end
             end
         end
         return i
     end
+
     local i = 0
     setTextColor(1, 1, 1, 1)
     setTextBold(false)
@@ -340,7 +340,7 @@ function Utility.renderTable(posX, posY, textSize, inputTable, maxDepth, hideFun
             end
             i = i + 1
             if type(v) == "table" then
-                i = renderTableRecursively(posX + textSize * 2, posY, textSize, v, 1, maxDepth, i)
+                i = renderTableRecursively(posX + textSize * 1.8, v, 1, i)
             end
         end
     end
@@ -374,4 +374,68 @@ end
 
 function Utility.prependedFunction(target, name, newFunc)
     target[name] = Utils.prependedFunction(target[name], newFunc)
+end
+
+function Utility.getTrunkValue(id, splitType)
+    if splitType == nil then
+        splitType = g_splitTypeManager:getSplitTypeByIndex(getSplitType(id))
+    end
+
+    if splitType == nil or splitType.pricePerLiter <= 0 then
+        return 0
+    end
+
+    local volume = getVolume(id)
+    local qualityScale = 1
+    local lengthScale = 1
+    local defoliageScale = 1
+    local sizeX, sizeY, sizeZ, numConvexes, numAttachments = getSplitShapeStats(id)
+
+    if sizeX ~= nil and volume > 0 then
+        local bvVolume = sizeX * sizeY * sizeZ
+        local volumeRatio = bvVolume / volume
+        local volumeQuality = 1 - math.sqrt(MathUtil.clamp((volumeRatio - 3) / 7, 0, 1)) * 0.95 --  ratio <= 3: 100%, ratio >= 10: 5%
+        local convexityQuality = 1 - MathUtil.clamp((numConvexes - 2) / (6 - 2), 0, 1) * 0.95
+        -- 0-2: 100%:, >= 6: 5%
+
+        local maxSize = math.max(sizeX, math.max(sizeY, sizeZ))
+        -- 1m: 60%, 6-11m: 120%, 19m: 60%
+        if maxSize < 11 then
+            lengthScale = 0.6 + math.min(math.max((maxSize - 1) / 5, 0), 1) * 0.6
+        else
+            lengthScale = 1.2 - math.min(math.max((maxSize - 11) / 8, 0), 1) * 0.6
+        end
+
+        local minQuality = math.min(convexityQuality, volumeQuality)
+        local maxQuality = math.max(convexityQuality, volumeQuality)
+        qualityScale = minQuality + (maxQuality - minQuality) * 0.3 -- use 70% of min quality
+
+        defoliageScale = 1 - math.min(numAttachments / 15, 1) * 0.8 -- #attachments 0: 100%, >=15: 20%
+    end
+
+    -- Only take 33% into account of the quality criteria on easy difficulty
+    qualityScale = MathUtil.lerp(1, qualityScale, g_currentMission.missionInfo.economicDifficulty / 3)
+
+    defoliageScale = MathUtil.lerp(1, defoliageScale, g_currentMission.missionInfo.economicDifficulty / 3)
+
+    return volume * 1000 * splitType.pricePerLiter * qualityScale * defoliageScale * lengthScale, qualityScale, defoliageScale, lengthScale
+end
+
+function Utility.getFarmColor(farmId)
+    local farm = g_farmManager:getFarmById(farmId)
+    if farm ~= nil then
+        local color = Farm.COLORS[farm.color]
+        if color ~= nil then
+            return color
+        end
+    end
+    return {1, 1, 1, 1}
+end
+
+function Utility.getFarmName(farmId)
+    local farm = g_farmManager:getFarmById(farmId)
+    if farm ~= nil then
+        return farm.name
+    end
+    return "N/D"
 end

@@ -23,15 +23,12 @@ InitRoyalHud(Utils.getFilename("lib/hud/", g_currentModDirectory))
 
 function InfoDisplay:loadMap()
     if Player.update ~= nil then
-        g_logManager:devInfo("[%s] Overwritten Player.update", InfoDisplay.name)
         Player.update = Utils.overwrittenFunction(Player.update, PlayerExtension.update)
     end
     if Player.draw ~= nil then
-        g_logManager:devInfo("[%s] Overwritten Player.draw", InfoDisplay.name)
         Player.draw = Utils.overwrittenFunction(Player.draw, PlayerExtension.draw)
     end
     if Player.updateTick ~= nil then
-        g_logManager:devInfo("[%s] Overwritten Player.updateTick", InfoDisplay.name)
         Player.updateTick = Utils.overwrittenFunction(Player.updateTick, PlayerExtension.updateTick)
     end
     if Player.infoObjectRaycastCallback == nil then
@@ -39,7 +36,9 @@ function InfoDisplay:loadMap()
     end
     PlayerExtension.huds["BALE"] = BaleHud:new()
     PlayerExtension.huds["TREE"] = TreeHud:new()
+    PlayerExtension.huds["TRUNK"] = TrunkHud:new()
     PlayerExtension.huds["PALLET"] = PalletHud:new()
+    PlayerExtension.huds["VEHICLE"] = VehicleHud:new()
 end
 
 function InfoDisplay:loadSavegame()

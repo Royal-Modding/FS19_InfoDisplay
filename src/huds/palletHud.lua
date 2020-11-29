@@ -27,10 +27,12 @@ function PalletHud:new()
         if g_screenHeight <= g_referenceScreenHeight then
             iconFilename = fillType.hudOverlayFilenameSmall
         end
-        local fillIcon = RoyalHudImage:new("fti_" .. i, iconFilename, 5, 5, 40, 40, hud.secondRow)
-        fillIcon:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_LEFT)
-        fillIcon:setIsVisible(false)
-        hud.fillTypesIcons[fillType.index] = fillIcon
+        if iconFilename ~= "dataS2/menu/hud/fillTypes/hud_fill_fuel.png" and iconFilename ~= "" then
+            local fillIcon = RoyalHudImage:new("fti_" .. i, iconFilename, 5, 5, 40, 40, hud.secondRow)
+            fillIcon:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_LEFT)
+            fillIcon:setIsVisible(false)
+            hud.fillTypesIcons[fillType.index] = fillIcon
+        end
     end
     hud.fillLevelText = RoyalHudText:new("flt", "", 18, false, 56, 10, hud.secondRow)
     hud.fillLevelText:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_LEFT)
@@ -47,19 +49,8 @@ end
 
 function PalletHud:setData(data)
     if data ~= nil then
-        local colorForFarm = function(farmId)
-            local farm = g_farmManager:getFarmById(farmId)
-            if farm ~= nil then
-                local color = Farm.COLORS[farm.color]
-                if color ~= nil then
-                    return color
-                end
-            end
-            return {1, 1, 1, 1}
-        end
-
         self.massText:setText(string.format("%d kg", data.mass))
-        self.ownerIcon:setColor(colorForFarm(data.ownerFarmId))
+        self.ownerIcon:setColor(Utility.getFarmColor(data.ownerFarmId))
         self.fillLevelText:setText(string.format("%d l", data.fillLevel))
         self:setFillTypeIconsVisibility(false)
         local fillTypeIcon = self.fillTypesIcons[data.fillType]
