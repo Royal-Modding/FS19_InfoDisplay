@@ -61,23 +61,23 @@ Et c’est juste quelques-unes des informations qu’il va vous donner.
 	<l10n>
 		<text name="id_baleHudTitle">
 			<en>Bale Info</en>
-			<de>Ballen Informationen</de>
+			<de>Ballen-Information</de>
 		</text>
 		<text name="id_treeHudTitle">
 			<en>Tree Info</en>
-			<de>Baum Informationen</de>
+			<de>Baum-Information</de>
 		</text>
 		<text name="id_trunkHudTitle">
 			<en>Log Info</en>
-			<de>Kofferraum Informationen</de>
+			<de>Kofferraum-Information</de>
 		</text>
 		<text name="id_palletHudTitle">
 			<en>Pallet Info</en>
-			<de>Palette Informationen</de>
+			<de>Paletten-Information</de>
 		</text>
 		<text name="id_vehicleHudTitle">
 			<en>Vehicle Info</en>
-			<de>Fahrzeug Informationen</de>
+			<de>Fahrzeug-Information</de>
 		</text>
 		<text name="id_treeName1">
 			<en>Spruce</en>
