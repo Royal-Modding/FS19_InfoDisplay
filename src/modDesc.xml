@@ -20,14 +20,14 @@ And that's just some of the information it's going to give you.
 		</en>
 		<de>
 			<![CDATA[
-Wenn Sie sich jemals gefragt haben: "Was schaue ich mir an?" Info Display ist der richtige Mod für Sie, weil es Ihnen eine Menge Informationen über das Objekt zeigt, das Sie betrachten, wie z. B.:
+Haben Sie sich jemals gefragt haben: "Was schaue ich mir an?" Info Display ist der richtige Mod für Sie, weil es Ihnen eine Menge Informationen über das Objekt zeigt das Sie betrachten, wie z. B.:
 - Größe und Art eines Baumes
 - Wie viel Hackschnitzel oder wie viel Geld Sie aus einem Baumstamm bekommen können
 - Wie viel und welches Material sich in einer Palette befindet
 - Größe, Gewicht, Material eines Ballens
 - Gewicht und Zustand der Wartung eines Traktors oder Werkzeugs
 
-Und das sind nur einige der Informationen, die es Ihnen geben wird.
+Und das sind nur einige der Informationen die es Ihnen geben wird.
 ]]>
 		</de>
 		<fr>
@@ -61,18 +61,23 @@ Et c’est juste quelques-unes des informations qu’il va vous donner.
 	<l10n>
 		<text name="id_baleHudTitle">
 			<en>Bale Info</en>
+			<de>Ballen Informationen</de>
 		</text>
 		<text name="id_treeHudTitle">
 			<en>Tree Info</en>
+			<de>Baum Informationen</de>
 		</text>
 		<text name="id_trunkHudTitle">
 			<en>Log Info</en>
+			<de>Kofferraum Informationen</de>
 		</text>
 		<text name="id_palletHudTitle">
 			<en>Pallet Info</en>
+			<de>Palette Informationen</de>
 		</text>
 		<text name="id_vehicleHudTitle">
 			<en>Vehicle Info</en>
+			<de>Fahrzeug Informationen</de>
 		</text>
 		<text name="id_treeName1">
 			<en>Spruce</en>
@@ -106,45 +111,58 @@ Et c’est juste quelques-unes des informations qu’il va vous donner.
 		</text>
 		<text name="id_treeName7">
 			<en>Oak</en>
+			<de>Eiche</de>
 		</text>
 		<text name="id_treeName8">
 			<en>Ash</en>
+			<de>Asche</de>
 		</text>
 		<text name="id_treeName9">
 			<en>Locust</en>
 		</text>
 		<text name="id_treeName10">
 			<en>Mahogany</en>
+			<de>Mahagoni</de>
 		</text>
 		<text name="id_treeName11">
 			<en>Poplar</en>
+			<de>Pappel</de>
 		</text>
 		<text name="id_name">
 			<en>Name</en>
+			<de>Namen</de>
 		</text>
 		<text name="id_height">
 			<en>Height</en>
+			<de>Höhe</de>
 		</text>
 		<text name="id_size">
 			<en>Size</en>
+			<de>Größe</de>
 		</text>
 		<text name="id_mass">
 			<en>Mass</en>
+			<de>Masse</de>
 		</text>
 		<text name="id_woodChips">
 			<en>Wood chips</en>
+			<de>Holzspäne</de>
 		</text>
 		<text name="id_price">
 			<en>Sell price</en>
+			<de>Verkaufspreis</de>
 		</text>
 		<text name="id_owner">
 			<en>Owner</en>
+			<de>Besitzer</de>
 		</text>
 		<text name="id_condition">
 			<en>Condition</en>
+			<de>Zustand</de>
 		</text>
 		<text name="id_damage">
 			<en>Damage</en>
+			<de>Schaden</de>
 		</text>
 	</l10n>
 </modDesc>
