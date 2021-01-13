@@ -7,6 +7,7 @@
 
 --- RoyalHudControl class
 ---@class RoyalHudControl : RoyalHud
+---@field superClass fun(self:table):RoyalHud
 RoyalHudControl = {}
 RoyalHudControl_mt = Class(RoyalHudControl, RoyalHud)
 

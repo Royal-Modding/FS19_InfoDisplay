@@ -5,14 +5,15 @@
 -- @version ${version}
 -- @date 12/11/2020
 
+---@class BaleHud : RoyalHudControl
 BaleHud = {}
 BaleHud_mt = Class(BaleHud, RoyalHudControl)
 
 function BaleHud:new()
-    ---@type RoyalHudControl
     local width, height = 340, 104
     local style = RoyalHudStyles.getStyle(InfoDisplayStyle, FS19Style)
 
+    ---@type RoyalHudControl
     local hud = RoyalHudControl:new("baleHud", 1 - g_safeFrameOffsetX, 0 + g_safeFrameOffsetY, width, height, style, nil, BaleHud_mt)
     hud:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_RIGHT)
     hud.panel = RoyalHudPanel:new("baleHudPanel", 0.5, 0.5, width, height, style, hud)

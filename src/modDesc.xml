@@ -16,6 +16,13 @@ If you've ever wondered "what am I looking at?" Info Display is the right mod fo
 - The weight and state of maintenance of a tractor or tool
 
 And that's just some of the information it's going to give you.
+
+Changelog 1.0.1.0:
+- Added ES translations
+- Added FR translations
+- Added IT translations
+- Fixed some minor hud issues
+- Fixed error with pallets in MP
 ]]>
 		</en>
 		<de>
@@ -28,6 +35,13 @@ Haben Sie sich jemals gefragt haben: "Was schaue ich mir an?" Info Display ist d
 - Gewicht und Zustand der Wartung eines Traktors oder Werkzeugs
 
 Und das sind nur einige der Informationen die es Ihnen geben wird.
+
+Changelog 1.0.1.0:
+- ES-Übersetzungen hinzugefügt
+- FR-Übersetzungen hinzugefügt
+- IT-Übersetzungen hinzugefügt
+- Einige kleinere Hud-Probleme behoben
+- Fehler mit Paletten in MP behoben
 ]]>
 		</de>
 		<fr>
@@ -40,6 +54,13 @@ Si vous vous êtes déjà demandé " qu’est-ce que je regarde ? » Info Displa
 - Le poids et l’état d’entretien d’un tracteur ou d’un outil
 
 Et c’est juste quelques-unes des informations qu’il va vous donner.
+
+Changelog 1.0.1.0:
+- Traductions ES ajoutées
+- Traductions en FR ajoutées
+- Traductions IT ajoutées
+- Correction de quelques problèmes mineurs liés au hud
+- Correction d'une erreur avec les palettes en MP
 ]]>
 		</fr>
 	</description>
@@ -62,107 +83,167 @@ Et c’est juste quelques-unes des informations qu’il va vous donner.
 		<text name="id_baleHudTitle">
 			<en>Bale Info</en>
 			<de>Ballen-Information</de>
+			<fr>Info Bale</fr>
+			<it>Info balle</it>
 		</text>
 		<text name="id_treeHudTitle">
 			<en>Tree Info</en>
 			<de>Baum-Information</de>
+			<fr>Info sur l'arborescence</fr>
+			<es>Info de árbol</es>
+			<it>Info albero</it>
 		</text>
 		<text name="id_trunkHudTitle">
 			<en>Log Info</en>
 			<de>Kofferraum-Information</de>
+			<fr>Info de journal</fr>
+			<es>Info de registro</es>
+			<it>Info tronco</it>
 		</text>
 		<text name="id_palletHudTitle">
 			<en>Pallet Info</en>
 			<de>Paletten-Information</de>
+			<fr>Info sur la palette</fr>
+			<it>Info pallet</it>
 		</text>
 		<text name="id_vehicleHudTitle">
 			<en>Vehicle Info</en>
 			<de>Fahrzeug-Information</de>
+			<fr>Info sur le véhicule</fr>
+			<es>Info del vehículo</es>
+			<it>Info veicolo</it>
 		</text>
 		<text name="id_treeName1">
 			<en>Spruce</en>
 			<de>Fichte</de>
-			<pl>Świerk</pl>
+			<fr>Épinette</fr>
+			<es>Espruce</es>
 			<it>Abete</it>
+			<pl>Swierk</pl>
 		</text>
 		<text name="id_treeName2">
 			<en>Pine</en>
 			<de>Kiefer</de>
-			<pl>Sosna</pl>
+			<fr>Pin</fr>
+			<es>Pino</es>
 			<it>Pino</it>
+			<pl>Sosna</pl>
 		</text>
 		<text name="id_treeName3">
 			<en>Larch</en>
+			<fr>Larche</fr>
 		</text>
 		<text name="id_treeName4">
 			<en>Birch</en>
 			<de>Birke</de>
+			<fr>Bouleau</fr>
 			<pl>Brzoza</pl>
 		</text>
 		<text name="id_treeName5">
 			<en>Beech</en>
 			<de>Buche</de>
+			<fr>Hêtres</fr>
 			<pl>Buk</pl>
 		</text>
 		<text name="id_treeName6">
 			<en>Maple</en>
 			<de>Ahorn</de>
+			<es>Arce</es>
 			<pl>Klon</pl>
 		</text>
 		<text name="id_treeName7">
 			<en>Oak</en>
 			<de>Eiche</de>
+			<fr>Chêne</fr>
+			<es>Roble</es>
+			<it>Quercia</it>
 		</text>
 		<text name="id_treeName8">
 			<en>Ash</en>
 			<de>Asche</de>
+			<es>Cenizas</es>
+			<it>Ceneri</it>
 		</text>
 		<text name="id_treeName9">
 			<en>Locust</en>
+			<fr>Criquet</fr>
+			<es>Langosta</es>
+			<it>Locusta</it>
 		</text>
 		<text name="id_treeName10">
 			<en>Mahogany</en>
 			<de>Mahagoni</de>
+			<fr>Mahoganie</fr>
+			<es>Caoba</es>
+			<it>Mogano</it>
 		</text>
 		<text name="id_treeName11">
 			<en>Poplar</en>
 			<de>Pappel</de>
+			<fr>Peuplier</fr>
+			<it>Pioppo</it>
 		</text>
 		<text name="id_name">
 			<en>Name</en>
 			<de>Namen</de>
+			<fr>Nom</fr>
+			<es>Nombre</es>
+			<it>Nome</it>
 		</text>
 		<text name="id_height">
 			<en>Height</en>
 			<de>Höhe</de>
+			<fr>Hauteur</fr>
+			<es>Altura</es>
+			<it>Altezza</it>
 		</text>
 		<text name="id_size">
 			<en>Size</en>
 			<de>Größe</de>
+			<fr>Taille</fr>
+			<es>Tamaño</es>
+			<it>Dimensione</it>
 		</text>
 		<text name="id_mass">
 			<en>Mass</en>
 			<de>Masse</de>
+			<fr>Masse</fr>
+			<es>Masa</es>
+			<it>Massa</it>
 		</text>
 		<text name="id_woodChips">
 			<en>Wood chips</en>
 			<de>Holzspäne</de>
+			<fr>Puces de bois</fr>
+			<es>Chips de madera</es>
+			<it>Cippato</it>
 		</text>
 		<text name="id_price">
 			<en>Sell price</en>
 			<de>Verkaufspreis</de>
+			<fr>Prix de vente</fr>
+			<es>Precio de venta</es>
+			<it>Prezzo di vendita</it>
 		</text>
 		<text name="id_owner">
 			<en>Owner</en>
 			<de>Besitzer</de>
+			<fr>Propriétaire</fr>
+			<es>Propietario</es>
+			<it>Proprietario</it>
 		</text>
 		<text name="id_condition">
 			<en>Condition</en>
 			<de>Zustand</de>
+			<es>Condición</es>
+			<it>Condizione</it>
 		</text>
 		<text name="id_damage">
 			<en>Damage</en>
 			<de>Schaden</de>
+			<fr>Dommages</fr>
+			<es>Daños</es>
+			<it>Danni</it>
 		</text>
 	</l10n>
 </modDesc>

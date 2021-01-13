@@ -5,14 +5,15 @@
 -- @version ${version}
 -- @date 25/11/2020
 
+---@class PalletHud : RoyalHudControl
 PalletHud = {}
 PalletHud_mt = Class(PalletHud, RoyalHudControl)
 
 function PalletHud:new()
-    ---@type RoyalHudControl
     local width, height = 340, 54
     local style = RoyalHudStyles.getStyle(InfoDisplayStyle, FS19Style)
 
+    ---@type RoyalHudControl
     local hud = RoyalHudControl:new("PalletHud", 1 - g_safeFrameOffsetX, 0 + g_safeFrameOffsetY, width, height, style, nil, PalletHud_mt)
     hud:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_RIGHT)
     hud.panel = RoyalHudPanel:new("PalletHudPanel", 0.5, 0.5, width, height, style, hud)
