@@ -1,9 +1,8 @@
---
--- Royal Utility
---
--- @author Royal Modding
--- @version 1.7.0.0
--- @date 11/01/2021
+--- Royal Utility
+
+---@author Royal Modding
+---@version 1.8.0.0
+---@date 11/01/2021
 
 --- Interpolators utilities class
 ---@class InterpolatorUtility
@@ -95,4 +94,20 @@ end
 function InterpolatorUtility.exponential24InvertedInterpolator1(first, second, alpha)
     alpha = ((8 ^ alpha) - 1) / 7
     return (second[1] + alpha * (first[1] - second[1]))
+end
+
+function InterpolatorUtility.catmullRomInterpolator1(first, second, beforeFirst, afterSecond, alpha)
+    alpha = 1 - alpha
+    local alpha2 = alpha * alpha
+    local alpha3 = alpha2 * alpha
+
+    if beforeFirst == nil then
+        beforeFirst = {2 * first[1] - second[1]}
+    end
+
+    if afterSecond == nil then
+        afterSecond = {2 * second[1] - first[1]}
+    end
+
+    return 0.5 * ((2 * first[1]) + (-beforeFirst[1] + second[1]) * alpha + (2 * beforeFirst[1] - 5 * first[1] + 4 * second[1] - afterSecond[1]) * alpha2 + (-beforeFirst[1] + 3 * first[1] - 3 * second[1] + afterSecond[1]) * alpha3)
 end

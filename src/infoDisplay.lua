@@ -1,9 +1,8 @@
---
--- ${title}
---
--- @author ${author}
--- @version ${version}
--- @date 09/11/2020
+---${title}
+
+---@author ${author}
+---@version r_version_r
+---@date 09/11/2020
 
 InfoDisplay = {}
 InfoDisplay.name = "InfoDisplay"
