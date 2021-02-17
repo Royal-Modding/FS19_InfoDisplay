@@ -20,21 +20,10 @@ function PalletHud:new()
     hud.title = RoyalHudText:new("title", string.upper(g_i18n:getText("id_palletHudTitle")), 20, true, 0, height - 2, hud)
     hud.title:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_LEFT)
 
+    ---@type RoyalHud
     hud.secondRow = RoyalHud:new("sr", 0, height, width, 50, hud)
     hud.secondRow:setAlignment(RoyalHud.ALIGNS_VERTICAL_TOP, RoyalHud.ALIGNS_HORIZONTAL_LEFT)
-    hud.fillTypesIcons = {}
-    for i, fillType in ipairs(g_fillTypeManager:getFillTypes()) do
-        local iconFilename = fillType.hudOverlayFilename
-        if g_screenHeight <= g_referenceScreenHeight then
-            iconFilename = fillType.hudOverlayFilenameSmall
-        end
-        if iconFilename ~= "dataS2/menu/hud/fillTypes/hud_fill_fuel.png" and iconFilename ~= "" then
-            local fillIcon = RoyalHudImage:new("fti_" .. i, iconFilename, 5, 5, 40, 40, hud.secondRow)
-            fillIcon:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_LEFT)
-            fillIcon:setIsVisible(false)
-            hud.fillTypesIcons[fillType.index] = fillIcon
-        end
-    end
+
     hud.fillLevelText = RoyalHudText:new("flt", "", 18, false, 56, 10, hud.secondRow)
     hud.fillLevelText:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_LEFT)
     hud.massIcon = RoyalHudImage:new("mi", InfoDisplay.hudAtlasPath, 140, 0, 50, 50, hud.secondRow)
@@ -78,4 +67,20 @@ function PalletHud:getRenderPosition()
     end
 
     return x, y
+end
+
+function PalletHud:loadFillIcons()
+    self.fillTypesIcons = {}
+    for i, fillType in ipairs(g_fillTypeManager:getFillTypes()) do
+        local iconFilename = fillType.hudOverlayFilename
+        if g_screenHeight <= g_referenceScreenHeight then
+            iconFilename = fillType.hudOverlayFilenameSmall
+        end
+        if iconFilename ~= "dataS2/menu/hud/fillTypes/hud_fill_fuel.png" and iconFilename ~= "" then
+            local fillIcon = RoyalHudImage:new("fti_" .. i, iconFilename, 5, 5, 40, 40, self.secondRow)
+            fillIcon:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_LEFT)
+            fillIcon:setIsVisible(false)
+            self.fillTypesIcons[fillType.index] = fillIcon
+        end
+    end
 end

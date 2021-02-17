@@ -142,7 +142,7 @@ function PlayerExtension.getBaleInfo(object, objectId)
 end
 
 function PlayerExtension.getPalletInfo(object, _)
-    if object["typeName"] ~= nil and object.typeName == "pallet" and object.spec_fillUnit ~= nil then
+    if object["typeName"] ~= nil and string.find(string.lower(object.typeName), "pallet") and object.spec_fillUnit ~= nil then
         local info = {}
         info.type = "PALLET"
         info.mass = PlayerExtension.getMass(object)
