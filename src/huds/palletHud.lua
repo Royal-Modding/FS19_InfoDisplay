@@ -8,11 +8,12 @@
 PalletHud = {}
 PalletHud_mt = Class(PalletHud, RoyalHudControl)
 
+---@return PalletHud
 function PalletHud:new()
     local width, height = 340, 54
     local style = RoyalHudStyles.getStyle(InfoDisplayStyle, FS19Style)
 
-    ---@type RoyalHudControl
+    ---@type PalletHud
     local hud = RoyalHudControl:new("PalletHud", 1 - g_safeFrameOffsetX, 0 + g_safeFrameOffsetY, width, height, style, nil, PalletHud_mt)
     hud:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_RIGHT)
     hud.panel = RoyalHudPanel:new("PalletHudPanel", 0.5, 0.5, width, height, style, hud)
@@ -47,6 +48,12 @@ function PalletHud:new()
     return hud
 end
 
+function PalletHud:setFillTypeIconsVisibility(visible)
+    for _, icon in pairs(self.fillTypesIcons) do
+        icon:setIsVisible(visible)
+    end
+end
+
 function PalletHud:setData(data)
     if data ~= nil then
         self.massText:setText(string.format("%d kg", data.mass))
@@ -57,12 +64,6 @@ function PalletHud:setData(data)
         if fillTypeIcon ~= nil then
             fillTypeIcon:setIsVisible(true)
         end
-    end
-end
-
-function PalletHud:setFillTypeIconsVisibility(visible)
-    for _, icon in pairs(self.fillTypesIcons) do
-        icon:setIsVisible(visible)
     end
 end
 

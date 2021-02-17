@@ -8,12 +8,14 @@
 VehicleHud = {}
 VehicleHud_mt = Class(VehicleHud, RoyalHudControl)
 
+---@return VehicleHud
 function VehicleHud:new()
     local width, height = 340, (28 * 5) + 24
     local rowWidth, rowHeight = width - 48, 28
     local rowContainerWidth, rowContainerHeight = rowWidth, height - 24
     local style = RoyalHudStyles.getStyle(InfoDisplayStyle, FS19Style)
-    ---@type RoyalHudControl
+    
+    ---@type VehicleHud
     local hud = RoyalHudControl:new("VehicleHud", 1 - g_safeFrameOffsetX, 0 + g_safeFrameOffsetY, width, height, style, nil, VehicleHud_mt)
     hud:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_RIGHT)
     hud.panel = RoyalHudPanel:new("VehicleHudPanel", 0.5, 0.5, width, height, style, hud)

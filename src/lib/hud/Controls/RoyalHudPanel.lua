@@ -1,9 +1,8 @@
---
--- Royal Hud
---
--- @author Royal Modding
--- @version 1.2.0.0
--- @date 10/11/2020
+--- Royal Hud
+
+---@author Royal Modding
+---@version 1.3.0.0
+---@date 10/11/2020
 
 --- RoyalHudPanel class
 ---@class RoyalHudPanel : RoyalHudControl

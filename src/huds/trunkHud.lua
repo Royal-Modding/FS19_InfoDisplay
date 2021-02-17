@@ -8,12 +8,14 @@
 TrunkHud = {}
 TrunkHud_mt = Class(TrunkHud, RoyalHudControl)
 
+---@return TrunkHud
 function TrunkHud:new()
     local width, height = 340, (28 * 5) + 24
     local rowWidth, rowHeight = width - 48, 28
     local rowContainerWidth, rowContainerHeight = rowWidth, height - 24
     local style = RoyalHudStyles.getStyle(InfoDisplayStyle, FS19Style)
-    ---@type RoyalHudControl
+    
+    ---@type TrunkHud
     local hud = RoyalHudControl:new("TrunkHud", 1 - g_safeFrameOffsetX, 0 + g_safeFrameOffsetY, width, height, style, nil, TrunkHud_mt)
     hud:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_RIGHT)
     hud.panel = RoyalHudPanel:new("TrunkHudPanel", 0.5, 0.5, width, height, style, hud)
