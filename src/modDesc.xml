@@ -19,6 +19,7 @@ And that's just some of the information it's going to give you.
 
 Changelog ${version}:
 - Added compatibility with upcoming mods
+- Added trees growth percentage
 - Fixed missing fill type icons
 ]]>
 		</en>
@@ -248,6 +249,9 @@ Changelog 1.0.1.0:
 		</text>
 		<text name="id_notDefined">
 			<en>N/D</en>
+		</text>
+		<text name="id_growth">
+			<en>Growth</en>
 		</text>
 	</l10n>
 </modDesc>

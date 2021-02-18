@@ -194,6 +194,20 @@ function PlayerExtension.getTreeInfo(objectId)
             info.x, info.y, info.z, info.numConvexes, info.numAttachments = getSplitShapeStats(objectId)
             if info.numAttachments >= 10 then
                 info.type = "TREE"
+                info.growth = 100
+                -- they doesn't save the "collision" id ç_ç
+                local searchNode = objectId - 2
+                local searchOrigSplitShape = objectId - 1
+                local gi =
+                    TableUtility.f_find(
+                    g_treePlantManager.treesData.growingTrees,
+                    function(e)
+                        return e.node == searchNode and e.origSplitShape == searchOrigSplitShape
+                    end
+                )
+                if gi ~= nil then
+                    info.growth = gi.growthState * 100
+                end
             else
                 info.type = "TRUNK"
                 info.mass = PlayerExtension.getMass(objectId)

@@ -10,7 +10,7 @@ TreeHud_mt = Class(TreeHud, RoyalHudControl)
 
 ---@return TreeHud
 function TreeHud:new()
-    local width, height = 340, 80
+    local width, height = 340, (28 * 2) + 52
     local rowWidth, rowHeight = width - 48, 28
     local rowContainerWidth, rowContainerHeight = rowWidth, height - 24
     local style = RoyalHudStyles.getStyle(InfoDisplayStyle, FS19Style)
@@ -27,7 +27,9 @@ function TreeHud:new()
 
     hud.row1 = hud:createRow(rowContainerHeight - (rowHeight * 0), rowWidth, rowHeight, g_i18n:getText("id_name"), hud.rowContainer)
     hud:createSeparator(rowWidth, hud.row1)
-    hud.row2 = hud:createRow(rowContainerHeight - (rowHeight * 1), rowWidth, rowHeight, g_i18n:getText("id_height"), hud.rowContainer)
+    hud.row2 = hud:createRow(rowContainerHeight - (rowHeight * 1), rowWidth, rowHeight, g_i18n:getText("id_growth"), hud.rowContainer)
+    hud:createSeparator(rowWidth, hud.row2)
+    hud.row3 = hud:createRow(rowContainerHeight - (rowHeight * 2), rowWidth, rowHeight, g_i18n:getText("id_height"), hud.rowContainer)
 
     hud.notDefinedText = g_i18n:getText("id_notDefined")
 
@@ -57,7 +59,8 @@ end
 function TreeHud:setData(data)
     if data ~= nil then
         self.row1.text:setText(data.localizedName)
-        self.row2.text:setText(string.format("%.1f m", data.x))
+        self.row2.text:setText(string.format("%.0f %%", data.growth))
+        self.row3.text:setText(string.format("%.1f m", data.x))
     end
 end
 
