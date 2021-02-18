@@ -205,6 +205,9 @@ function PlayerExtension.getTreeInfo(objectId)
                 info.woodChipsPerLiter = splitType.pricePerLiter
                 info.woodChips = info.volume * info.woodChipsPerLiter
                 info.price, info.qualityScale, info.defoliageScale, info.lengthScale = Utility.getTrunkValue(objectId, splitType)
+                if g_firewood ~= nil then
+                    info.firewood = g_firewood.FirewoodTool.getChoppingVolume(info.volume) or -1
+                end
             end
             info.splitType = splitType.splitType
             info.name = splitType.name

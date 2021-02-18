@@ -2,5 +2,8 @@
     "files.exclude": {
         "release": true,
         "tmp": true
-    }
+    },
+    "Lua.diagnostics.disable": [
+        "undefined-field"
+    ]
 }

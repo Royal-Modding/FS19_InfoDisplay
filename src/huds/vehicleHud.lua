@@ -14,7 +14,7 @@ function VehicleHud:new()
     local rowWidth, rowHeight = width - 48, 28
     local rowContainerWidth, rowContainerHeight = rowWidth, height - 24
     local style = RoyalHudStyles.getStyle(InfoDisplayStyle, FS19Style)
-    
+
     ---@type VehicleHud
     local hud = RoyalHudControl:new("VehicleHud", 1 - g_safeFrameOffsetX, 0 + g_safeFrameOffsetY, width, height, style, nil, VehicleHud_mt)
     hud:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_RIGHT)
@@ -34,6 +34,8 @@ function VehicleHud:new()
     hud:createSeparator(rowWidth, hud.row4)
     hud.row5 = hud:createRow(rowContainerHeight - (rowHeight * 4), rowWidth, rowHeight, g_i18n:getText("id_owner"), hud.rowContainer)
 
+    hud.notDefinedText = g_i18n:getText("id_notDefined")
+
     return hud
 end
 
@@ -44,7 +46,7 @@ function VehicleHud:createRow(y, width, height, title, parent)
     row.title = RoyalHudText:new("row_title", title, 17, true, 0, 0, row)
     row.title:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_LEFT)
     row.title:setOffset(1, 1)
-    row.text = RoyalHudText:new("row_text", "N/D", 16, false, 1, 0, row)
+    row.text = RoyalHudText:new("row_text", self.notDefinedText, 16, false, 1, 0, row)
     row.text:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_RIGHT)
     row.text:setOffset(-1, 1)
     return row
@@ -53,7 +55,7 @@ end
 function VehicleHud:createTitleRow(y, width, height, parent)
     local row = RoyalHud:new("row", 0, y, width, height, parent)
     row:setAlignment(RoyalHud.ALIGNS_VERTICAL_TOP, RoyalHud.ALIGNS_HORIZONTAL_LEFT)
-    row.title = RoyalHudText:new("row_title", "N/D", 17, true, 0, 0, row)
+    row.title = RoyalHudText:new("row_title", self.notDefinedText, 17, true, 0, 0, row)
     row.title:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_LEFT)
     row.title:setOffset(1, 1)
     return row
@@ -73,7 +75,7 @@ function VehicleHud:setData(data)
         self.row2.text:setText(string.format("%.0f %%", data.condition))
         self.row3.text:setText(string.format("%.0f %%", data.damage))
         self.row4.text:setText(string.format("%.0f kg", data.mass))
-        self.row5.text:setText(string.format("%s", Utility.getFarmName(data.ownerFarmId)))
+        self.row5.text:setText(string.format("%s", Utility.getFarmName(data.ownerFarmId) or self.notDefinedText))
         self.row5.text:setColor(Utility.getFarmColor(data.ownerFarmId))
     end
 end

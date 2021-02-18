@@ -17,12 +17,9 @@ If you've ever wondered "what am I looking at?" Info Display is the right mod fo
 
 And that's just some of the information it's going to give you.
 
-Changelog 1.0.1.0:
-- Added ES translations
-- Added FR translations
-- Added IT translations
-- Fixed some minor hud issues
-- Fixed error with pallets in MP
+Changelog ${version}:
+- Added compatibility with upcoming mods
+- Fixed missing fill type icons
 ]]>
 		</en>
 		<de>
@@ -245,6 +242,12 @@ Changelog 1.0.1.0:
 			<fr>Dommages</fr>
 			<es>Daños</es>
 			<it>Danni</it>
+		</text>
+		<text name="id_firewood">
+			<en>Firewood</en>
+		</text>
+		<text name="id_notDefined">
+			<en>N/D</en>
 		</text>
 	</l10n>
 </modDesc>

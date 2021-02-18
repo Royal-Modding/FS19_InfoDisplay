@@ -75,5 +75,5 @@ function Utility.getFarmName(farmId)
     if farm ~= nil then
         return farm.name
     end
-    return "N/D"
+    return nil
 end

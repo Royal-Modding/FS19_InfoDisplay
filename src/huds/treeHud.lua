@@ -29,6 +29,8 @@ function TreeHud:new()
     hud:createSeparator(rowWidth, hud.row1)
     hud.row2 = hud:createRow(rowContainerHeight - (rowHeight * 1), rowWidth, rowHeight, g_i18n:getText("id_height"), hud.rowContainer)
 
+    hud.notDefinedText = g_i18n:getText("id_notDefined")
+
     return hud
 end
 
@@ -38,7 +40,7 @@ function TreeHud:createRow(y, width, height, title, parent)
     row.title = RoyalHudText:new("row_title", title, 17, true, 0, 0, row)
     row.title:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_LEFT)
     row.title:setOffset(1, 1)
-    row.text = RoyalHudText:new("row_text", "N/D", 16, false, 1, 0, row)
+    row.text = RoyalHudText:new("row_text", self.notDefinedText, 16, false, 1, 0, row)
     row.text:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_RIGHT)
     row.text:setOffset(-1, 1)
     return row
