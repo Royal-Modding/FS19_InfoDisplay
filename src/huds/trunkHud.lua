@@ -81,7 +81,7 @@ function TrunkHud:setData(data)
     if data ~= nil then
         self.row1.text:setText(data.localizedName)
         self.row2.text:setText(string.format("%.1fm %.1fm %.1fm", data.x, data.y, data.z))
-        self.row3.text:setText(string.format("%.0f €", data.price))
+        self.row3.text:setText(g_i18n:formatMoney(data.price))
         self.row4.text:setText(string.format("%.0f l", data.woodChips))
         self.row5.text:setText(string.format("%.1f kg", data.mass))
         if self.firewoodEnabled then

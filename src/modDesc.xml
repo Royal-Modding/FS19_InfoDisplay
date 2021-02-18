@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="${descVersion}">
 	<author>${author}</author>
 	<version>${version}</version>
@@ -20,6 +20,7 @@ And that's just some of the information it's going to give you.
 Changelog ${version}:
 - Added compatibility with upcoming mods
 - Added trees growth percentage
+- Added support for all currencies
 - Fixed missing fill type icons
 ]]>
 		</en>
@@ -34,12 +35,11 @@ Haben Sie sich jemals gefragt haben: "Was schaue ich mir an?" Info Display ist d
 
 Und das sind nur einige der Informationen die es Ihnen geben wird.
 
-Changelog 1.0.1.0:
-- ES-Übersetzungen hinzugefügt
-- FR-Übersetzungen hinzugefügt
-- IT-Übersetzungen hinzugefügt
-- Einige kleinere Hud-Probleme behoben
-- Fehler mit Paletten in MP behoben
+Changelog ${version}:
+- Kompatibilität mit kommenden Mods hinzugefügt
+- Prozentuales Wachstum der Bäume hinzugefügt
+- Unterstützung für alle Währungen hinzugefügt
+- Fehlende Fülltypen-Symbole behoben
 ]]>
 		</de>
 		<fr>
@@ -53,12 +53,11 @@ Si vous vous êtes déjà demandé " qu’est-ce que je regarde ? » Info Displa
 
 Et c’est juste quelques-unes des informations qu’il va vous donner.
 
-Changelog 1.0.1.0:
-- Traductions ES ajoutées
-- Traductions en FR ajoutées
-- Traductions IT ajoutées
-- Correction de quelques problèmes mineurs liés au hud
-- Correction d'une erreur avec les palettes en MP
+Changelog ${version}:
+- Compatibilité ajoutée avec les prochains mods
+- Pourcentage de croissance des arbres ajoutés
+- Ajout d'un support pour toutes les devises
+- Correction des icônes de type de remplissage manquantes
 ]]>
 		</fr>
 	</description>
@@ -131,24 +130,28 @@ Changelog 1.0.1.0:
 		<text name="id_treeName3">
 			<en>Larch</en>
 			<fr>Larche</fr>
+			<it>Larice</it>
 		</text>
 		<text name="id_treeName4">
 			<en>Birch</en>
 			<de>Birke</de>
 			<fr>Bouleau</fr>
 			<pl>Brzoza</pl>
+			<it>Betulla</it>
 		</text>
 		<text name="id_treeName5">
 			<en>Beech</en>
 			<de>Buche</de>
 			<fr>Hêtres</fr>
 			<pl>Buk</pl>
+			<it>Faggio</it>
 		</text>
 		<text name="id_treeName6">
 			<en>Maple</en>
 			<de>Ahorn</de>
 			<es>Arce</es>
 			<pl>Klon</pl>
+			<it>Acero</it>
 		</text>
 		<text name="id_treeName7">
 			<en>Oak</en>
@@ -161,7 +164,7 @@ Changelog 1.0.1.0:
 			<en>Ash</en>
 			<de>Asche</de>
 			<es>Cenizas</es>
-			<it>Ceneri</it>
+			<it>Frassino</it>
 		</text>
 		<text name="id_treeName9">
 			<en>Locust</en>
@@ -252,6 +255,10 @@ Changelog 1.0.1.0:
 		</text>
 		<text name="id_growth">
 			<en>Growth</en>
+			<de>Wachstum</de>
+			<fr>Croissance</fr>
+			<es>Crecimiento</es>
+			<it>Crescita</it>
 		</text>
 	</l10n>
 </modDesc>
