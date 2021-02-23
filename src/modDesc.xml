@@ -82,7 +82,9 @@ Changelog ${version}:
 			<en>Bale Info</en>
 			<de>Ballen-Information</de>
 			<fr>Info Bale</fr>
+			<es>Info de la paca</es>
 			<it>Info balle</it>
+			<pl>Informacje o beli</pl>
 		</text>
 		<text name="id_treeHudTitle">
 			<en>Tree Info</en>
@@ -90,6 +92,7 @@ Changelog ${version}:
 			<fr>Info sur l'arborescence</fr>
 			<es>Info de árbol</es>
 			<it>Info albero</it>
+			<pl>Informacje o drzewie</pl>
 		</text>
 		<text name="id_trunkHudTitle">
 			<en>Log Info</en>
@@ -97,12 +100,15 @@ Changelog ${version}:
 			<fr>Info de journal</fr>
 			<es>Info de registro</es>
 			<it>Info tronco</it>
+			<pl>Informacje o bali</pl>
 		</text>
 		<text name="id_palletHudTitle">
 			<en>Pallet Info</en>
 			<de>Paletten-Information</de>
 			<fr>Info sur la palette</fr>
+			<es>Info de paleta</es>
 			<it>Info pallet</it>
+			<pl>Informacje o palecie</pl>
 		</text>
 		<text name="id_vehicleHudTitle">
 			<en>Vehicle Info</en>
@@ -110,6 +116,7 @@ Changelog ${version}:
 			<fr>Info sur le véhicule</fr>
 			<es>Info del vehículo</es>
 			<it>Info veicolo</it>
+			<pl>Informacje o pojeździe</pl>
 		</text>
 		<text name="id_treeName1">
 			<en>Spruce</en>
@@ -129,29 +136,35 @@ Changelog ${version}:
 		</text>
 		<text name="id_treeName3">
 			<en>Larch</en>
+			<de>Lärche</de>
 			<fr>Larche</fr>
+			<es>Alerce</es>
 			<it>Larice</it>
+			<pl>Modrzew</pl>
 		</text>
 		<text name="id_treeName4">
 			<en>Birch</en>
 			<de>Birke</de>
 			<fr>Bouleau</fr>
-			<pl>Brzoza</pl>
+			<es>Abedul</es>
 			<it>Betulla</it>
+			<pl>Brzoza</pl>
 		</text>
 		<text name="id_treeName5">
 			<en>Beech</en>
 			<de>Buche</de>
 			<fr>Hêtres</fr>
-			<pl>Buk</pl>
+			<es>Haya</es>
 			<it>Faggio</it>
+			<pl>Buk</pl>
 		</text>
 		<text name="id_treeName6">
 			<en>Maple</en>
 			<de>Ahorn</de>
-			<es>Arce</es>
-			<pl>Klon</pl>
+			<fr>Érable</fr>
+			<es>Arce</es>			
 			<it>Acero</it>
+			<pl>Klon</pl>
 		</text>
 		<text name="id_treeName7">
 			<en>Oak</en>
@@ -159,18 +172,23 @@ Changelog ${version}:
 			<fr>Chêne</fr>
 			<es>Roble</es>
 			<it>Quercia</it>
+			<pl>Dąb</pl>
 		</text>
 		<text name="id_treeName8">
 			<en>Ash</en>
 			<de>Asche</de>
+			<fr>Cendre</fr>
 			<es>Cenizas</es>
 			<it>Frassino</it>
+			<pl>Jesion</pl>
 		</text>
 		<text name="id_treeName9">
 			<en>Locust</en>
+			<de>Akazie</de>
 			<fr>Criquet</fr>
 			<es>Langosta</es>
 			<it>Locusta</it>
+			<pl>Akacja</pl>
 		</text>
 		<text name="id_treeName10">
 			<en>Mahogany</en>
@@ -178,12 +196,15 @@ Changelog ${version}:
 			<fr>Mahoganie</fr>
 			<es>Caoba</es>
 			<it>Mogano</it>
+			<pl>Mahoń</pl>
 		</text>
 		<text name="id_treeName11">
 			<en>Poplar</en>
 			<de>Pappel</de>
 			<fr>Peuplier</fr>
+			<es>Álamo</es>
 			<it>Pioppo</it>
+			<pl>Topola</pl>
 		</text>
 		<text name="id_name">
 			<en>Name</en>
@@ -191,6 +212,7 @@ Changelog ${version}:
 			<fr>Nom</fr>
 			<es>Nombre</es>
 			<it>Nome</it>
+			<pl>Nazwa</pl>
 		</text>
 		<text name="id_height">
 			<en>Height</en>
@@ -198,6 +220,7 @@ Changelog ${version}:
 			<fr>Hauteur</fr>
 			<es>Altura</es>
 			<it>Altezza</it>
+			<pl>Wysokość</pl>
 		</text>
 		<text name="id_size">
 			<en>Size</en>
@@ -205,6 +228,7 @@ Changelog ${version}:
 			<fr>Taille</fr>
 			<es>Tamaño</es>
 			<it>Dimensione</it>
+			<pl>Rozmiar</pl>
 		</text>
 		<text name="id_mass">
 			<en>Mass</en>
@@ -212,6 +236,7 @@ Changelog ${version}:
 			<fr>Masse</fr>
 			<es>Masa</es>
 			<it>Massa</it>
+			<pl>Waga</pl>
 		</text>
 		<text name="id_woodChips">
 			<en>Wood chips</en>
@@ -219,6 +244,7 @@ Changelog ${version}:
 			<fr>Puces de bois</fr>
 			<es>Chips de madera</es>
 			<it>Cippato</it>
+			<pl>Zrębki</pl>
 		</text>
 		<text name="id_price">
 			<en>Sell price</en>
@@ -226,6 +252,7 @@ Changelog ${version}:
 			<fr>Prix de vente</fr>
 			<es>Precio de venta</es>
 			<it>Prezzo di vendita</it>
+			<pl>Wartość</pl>
 		</text>
 		<text name="id_owner">
 			<en>Owner</en>
@@ -233,12 +260,15 @@ Changelog ${version}:
 			<fr>Propriétaire</fr>
 			<es>Propietario</es>
 			<it>Proprietario</it>
+			<pl>Właściciel</pl>
 		</text>
 		<text name="id_condition">
 			<en>Condition</en>
 			<de>Zustand</de>
+			<fr>Condition</fr>
 			<es>Condición</es>
 			<it>Condizione</it>
+			<pl>Stan<pl>
 		</text>
 		<text name="id_damage">
 			<en>Damage</en>
@@ -246,12 +276,14 @@ Changelog ${version}:
 			<fr>Dommages</fr>
 			<es>Daños</es>
 			<it>Danni</it>
+			<pl>Uszkodzone</pl>
 		</text>
 		<text name="id_firewood">
 			<en>Firewood</en>
 		</text>
 		<text name="id_notDefined">
 			<en>N/D</en>
+			<pl>Brak danych</pl>
 		</text>
 		<text name="id_growth">
 			<en>Growth</en>
@@ -259,6 +291,7 @@ Changelog ${version}:
 			<fr>Croissance</fr>
 			<es>Crecimiento</es>
 			<it>Crescita</it>
+			<pl>Stan wzrostu</pl>
 		</text>
 	</l10n>
 </modDesc>
