@@ -53,7 +53,7 @@ function PlayerExtension:infoObjectRaycastCallback(hitObjectId, _, _, _, _)
                 self.objectToDebug = PlayerExtension.getInfoObjectDebug(hitObjectId)
             end
 
-            if hitObjectId ~= self.lastValidInfoObjectId then
+            if hitObjectId ~= self.lastValidInfoObjectId or (self.lastValidInfoObjectTime ~= nil and (getTimeSec() - self.lastValidInfoObjectTime) > 1) then
                 local infoObject = PlayerExtension.getInfoObject(hitObjectId)
                 if infoObject ~= nil then
                     -- valid info object found
@@ -63,6 +63,7 @@ function PlayerExtension:infoObjectRaycastCallback(hitObjectId, _, _, _, _)
                     self.infoObject = infoObject
                     self.lastValidInfoObjectId = hitObjectId
                     self.foundInfoObject = true
+                    self.lastValidInfoObjectTime = getTimeSec()
                     return false -- stop raycast
                 end
             else

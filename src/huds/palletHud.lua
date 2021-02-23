@@ -34,6 +34,8 @@ function PalletHud:new()
     hud.ownerIcon = RoyalHudImage:new("oi", InfoDisplay.hudAtlasPath, 285, 0, 50, 50, hud.secondRow)
     hud.ownerIcon:setUVs(1792, 0, 256, 256, {2048, 2048})
     hud.ownerIcon:setAlignment(RoyalHud.ALIGNS_VERTICAL_BOTTOM, RoyalHud.ALIGNS_HORIZONTAL_LEFT)
+
+    self.fillTypesIcons = {}
     return hud
 end
 
@@ -70,7 +72,6 @@ function PalletHud:getRenderPosition()
 end
 
 function PalletHud:loadFillIcons()
-    self.fillTypesIcons = {}
     for i, fillType in ipairs(g_fillTypeManager:getFillTypes()) do
         local iconFilename = fillType.hudOverlayFilename
         if g_screenHeight <= g_referenceScreenHeight then

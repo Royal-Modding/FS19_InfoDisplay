@@ -82,11 +82,11 @@ function InfoDisplay:onPreLoadOnCreateLoadedObjects(xmlFile)
 end
 
 function InfoDisplay:onLoadFinished()
-    PlayerExtension.huds["BALE"]:loadFillIcons()
-    PlayerExtension.huds["PALLET"]:loadFillIcons()
 end
 
 function InfoDisplay:onStartMission()
+    PlayerExtension.huds["BALE"]:loadFillIcons()
+    PlayerExtension.huds["PALLET"]:loadFillIcons()
 end
 
 function InfoDisplay:onMissionStarted()
