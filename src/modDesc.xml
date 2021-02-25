@@ -26,7 +26,7 @@ Changelog ${version}:
 		</en>
 		<de>
 			<![CDATA[
-Haben Sie sich jemals gefragt haben: "Was schaue ich mir an?" Info Display ist der richtige Mod für Sie, weil es Ihnen eine Menge Informationen über das Objekt zeigt das Sie betrachten, wie z. B.:
+Haben Sie sich jemals gefragt: "Was schaue ich mir da an?". Dann ist "Info Display" die richtige Mod für Sie, weil es Ihnen eine Menge Informationen über das Objekt zeigt das Sie betrachten, wie z. B.:
 - Größe und Art eines Baumes
 - Wie viel Hackschnitzel oder wie viel Geld Sie aus einem Baumstamm bekommen können
 - Wie viel und welches Material sich in einer Palette befindet
@@ -176,7 +176,7 @@ Changelog ${version}:
 		</text>
 		<text name="id_treeName8">
 			<en>Ash</en>
-			<de>Asche</de>
+			<de>Esche</de>
 			<fr>Cendre</fr>
 			<es>Cenizas</es>
 			<it>Frassino</it>
@@ -208,7 +208,7 @@ Changelog ${version}:
 		</text>
 		<text name="id_name">
 			<en>Name</en>
-			<de>Namen</de>
+			<de>Name</de>
 			<fr>Nom</fr>
 			<es>Nombre</es>
 			<it>Nome</it>
@@ -240,7 +240,7 @@ Changelog ${version}:
 		</text>
 		<text name="id_woodChips">
 			<en>Wood chips</en>
-			<de>Holzspäne</de>
+			<de>Hackschnitzel</de>
 			<fr>Puces de bois</fr>
 			<es>Chips de madera</es>
 			<it>Cippato</it>
