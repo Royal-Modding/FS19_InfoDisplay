@@ -124,7 +124,7 @@ Changelog ${version}:
 			<fr>Épinette</fr>
 			<es>Espruce</es>
 			<it>Abete</it>
-			<pl>Swierk</pl>
+			<pl>Świerk</pl>
 		</text>
 		<text name="id_treeName2">
 			<en>Pine</en>
@@ -212,7 +212,7 @@ Changelog ${version}:
 			<fr>Nom</fr>
 			<es>Nombre</es>
 			<it>Nome</it>
-			<pl>Nazwa</pl>
+			<pl>Rodzaj</pl>
 		</text>
 		<text name="id_height">
 			<en>Height</en>
