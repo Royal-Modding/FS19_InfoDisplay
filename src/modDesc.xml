@@ -81,7 +81,7 @@ Changelog ${version}:
 		<text name="id_baleHudTitle">
 			<en>Bale Info</en>
 			<de>Ballen-Information</de>
-			<fr>Info Bale</fr>
+			<fr>Info Balle</fr>
 			<es>Info de la paca</es>
 			<it>Info balle</it>
 			<pl>Informacje o beli</pl>
@@ -89,7 +89,7 @@ Changelog ${version}:
 		<text name="id_treeHudTitle">
 			<en>Tree Info</en>
 			<de>Baum-Information</de>
-			<fr>Info sur l'arborescence</fr>
+			<fr>Info sur l'arbre</fr>
 			<es>Info de árbol</es>
 			<it>Info albero</it>
 			<pl>Informacje o drzewie</pl>
@@ -97,7 +97,7 @@ Changelog ${version}:
 		<text name="id_trunkHudTitle">
 			<en>Log Info</en>
 			<de>Kofferraum-Information</de>
-			<fr>Info de journal</fr>
+			<fr>Info sur la grume</fr>
 			<es>Info de registro</es>
 			<it>Info tronco</it>
 			<pl>Informacje o bali</pl>
@@ -121,7 +121,7 @@ Changelog ${version}:
 		<text name="id_treeName1">
 			<en>Spruce</en>
 			<de>Fichte</de>
-			<fr>Épinette</fr>
+			<fr>Epicea</fr>
 			<es>Espruce</es>
 			<it>Abete</it>
 			<pl>Świerk</pl>
@@ -137,7 +137,7 @@ Changelog ${version}:
 		<text name="id_treeName3">
 			<en>Larch</en>
 			<de>Lärche</de>
-			<fr>Larche</fr>
+			<fr>Larix</fr>
 			<es>Alerce</es>
 			<it>Larice</it>
 			<pl>Modrzew</pl>
@@ -185,7 +185,7 @@ Changelog ${version}:
 		<text name="id_treeName9">
 			<en>Locust</en>
 			<de>Akazie</de>
-			<fr>Criquet</fr>
+			<fr>Acacia</fr>
 			<es>Langosta</es>
 			<it>Locusta</it>
 			<pl>Akacja</pl>
@@ -193,7 +193,7 @@ Changelog ${version}:
 		<text name="id_treeName10">
 			<en>Mahogany</en>
 			<de>Mahagoni</de>
-			<fr>Mahoganie</fr>
+			<fr>Acajou</fr>
 			<es>Caoba</es>
 			<it>Mogano</it>
 			<pl>Mahoń</pl>
@@ -241,7 +241,7 @@ Changelog ${version}:
 		<text name="id_woodChips">
 			<en>Wood chips</en>
 			<de>Hackschnitzel</de>
-			<fr>Puces de bois</fr>
+			<fr>copeaux de bois</fr>
 			<es>Chips de madera</es>
 			<it>Cippato</it>
 			<pl>Zrębki</pl>
@@ -265,7 +265,7 @@ Changelog ${version}:
 		<text name="id_condition">
 			<en>Condition</en>
 			<de>Zustand</de>
-			<fr>Condition</fr>
+			<fr>Etat</fr>
 			<es>Condición</es>
 			<it>Condizione</it>
 			<pl>Stan<pl>
@@ -280,10 +280,12 @@ Changelog ${version}:
 		</text>
 		<text name="id_firewood">
 			<en>Firewood</en>
+			<fr>Bois de chauffage</fr>
 		</text>
 		<text name="id_notDefined">
 			<en>N/D</en>
 			<pl>Brak danych</pl>
+			<fr>Non défini</fr>
 		</text>
 		<text name="id_growth">
 			<en>Growth</en>
