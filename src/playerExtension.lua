@@ -218,7 +218,7 @@ function PlayerExtension.getTreeInfo(objectId)
                 info.volume = getVolume(objectId) * 1000
                 info.pricePerLiter = splitType.pricePerLiter
                 info.woodChipsPerLiter = splitType.pricePerLiter
-                info.woodChips = info.volume * info.woodChipsPerLiter
+                info.woodChips = info.volume * info.woodChipsPerLiter * 3.9 -- constant value that gives us an excellent approximation of the real value
                 info.price, info.qualityScale, info.defoliageScale, info.lengthScale = GameplayUtility.getTrunkValue(objectId, splitType)
                 if g_firewood ~= nil then
                     info.firewood = g_firewood.FirewoodTool.getChoppingVolume(info.volume) or -1
