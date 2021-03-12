@@ -48,7 +48,7 @@ end
 function PalletHud:setData(data)
     if data ~= nil then
         self.massText:setText(string.format("%d kg", data.mass))
-        self.ownerIcon:setColor(Utility.getFarmColor(data.ownerFarmId))
+        self.ownerIcon:setColor(GameplayUtility.getFarmColor(data.ownerFarmId))
         self.fillLevelText:setText(string.format("%d l", data.fillLevel))
         self:setFillTypeIconsVisibility(false)
         local fillTypeIcon = self.fillTypesIcons[data.fillType]

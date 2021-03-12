@@ -75,8 +75,8 @@ function VehicleHud:setData(data)
         self.row2.text:setText(string.format("%.0f %%", data.condition))
         self.row3.text:setText(string.format("%.0f %%", data.damage))
         self.row4.text:setText(string.format("%.0f kg", data.mass))
-        self.row5.text:setText(string.format("%s", Utility.getFarmName(data.ownerFarmId) or self.notDefinedText))
-        self.row5.text:setColor(Utility.getFarmColor(data.ownerFarmId))
+        self.row5.text:setText(string.format("%s", GameplayUtility.getFarmName(data.ownerFarmId) or self.notDefinedText))
+        self.row5.text:setColor(GameplayUtility.getFarmColor(data.ownerFarmId))
     end
 end
 

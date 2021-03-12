@@ -99,6 +99,7 @@ function InfoDisplay:onReadStream(streamId)
 end
 
 function InfoDisplay:onUpdate(dt)
+    --DebugUtility.renderTable(0.45, 0.99, 0.008, {missionInfo = g_currentMission.missionInfo})
 end
 
 function InfoDisplay:onUpdateTick(dt)

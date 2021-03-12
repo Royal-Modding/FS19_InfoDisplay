@@ -19,14 +19,14 @@ function PlayerExtension:draw(superFunc)
     if self.isEntered then
         if self.renderInfo then
             if InfoDisplay.debug then
-                Utility.renderTable(0.1, 0.95, 0.009, self.infoObject, 3, false)
+                DebugUtility.renderTable(0.1, 0.95, 0.009, self.infoObject, 3, false)
             end
             if PlayerExtension.huds[self.infoObject.type] ~= nil then
                 PlayerExtension.huds[self.infoObject.type]:render()
             end
         else
             if InfoDisplay.debug and self.raycastHitted then
-                Utility.renderTable(0.1, 0.95, 0.009, self.objectToDebug, 1, false)
+                DebugUtility.renderTable(0.1, 0.95, 0.009, self.objectToDebug, 1, false)
             end
         end
     end
@@ -46,7 +46,7 @@ end
 
 function PlayerExtension:infoObjectRaycastCallback(hitObjectId, _, _, _, _)
     if hitObjectId ~= self.rootNode then
-        local id, _ = Utility.getObjectClass(hitObjectId)
+        local id, _ = EntityUtility.getObjectClass(hitObjectId)
         if id == ClassIds.SHAPE then
             self.raycastHitted = true
             if self.objectToDebug == nil and InfoDisplay.debug then
@@ -219,7 +219,7 @@ function PlayerExtension.getTreeInfo(objectId)
                 info.pricePerLiter = splitType.pricePerLiter
                 info.woodChipsPerLiter = splitType.pricePerLiter
                 info.woodChips = info.volume * info.woodChipsPerLiter
-                info.price, info.qualityScale, info.defoliageScale, info.lengthScale = Utility.getTrunkValue(objectId, splitType)
+                info.price, info.qualityScale, info.defoliageScale, info.lengthScale = GameplayUtility.getTrunkValue(objectId, splitType)
                 if g_firewood ~= nil then
                     info.firewood = g_firewood.FirewoodTool.getChoppingVolume(info.volume) or -1
                 end

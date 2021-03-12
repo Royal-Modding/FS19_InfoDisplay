@@ -92,7 +92,7 @@ function BaleHud:setData(data)
             self.squareBaleLengthText:setText(string.format("%.1f m", data.baleLength))
         end
         self.massText:setText(string.format("%d kg", data.mass))
-        self.ownerIcon:setColor(Utility.getFarmColor(data.ownerFarmId))
+        self.ownerIcon:setColor(GameplayUtility.getFarmColor(data.ownerFarmId))
         self.fillLevelText:setText(string.format("%d l", data.fillLevel))
         self:setFillTypeIconsVisibility(false)
         local fillTypeIcon = self.fillTypesIcons[data.fillType]

@@ -268,7 +268,7 @@ Changelog ${version}:
 			<fr>Etat</fr>
 			<es>Condición</es>
 			<it>Condizione</it>
-			<pl>Stan<pl>
+			<pl>Stan</pl>
 		</text>
 		<text name="id_damage">
 			<en>Damage</en>
